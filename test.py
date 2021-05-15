@@ -13,43 +13,41 @@ opt = TestOptions().parse()
 
 dataloader = data.create_dataloader(opt)
 
-model = Pix2PixModel(opt)
-if opt.task != 'MMIS' and opt.dataset_mode != 'photo2art':
-    model.eval()
+# model = Pix2PixModel(opt)
+# if opt.task != 'MMIS' and opt.dataset_mode != 'photo2art':
+#     model.eval()
 
-visualizer = Visualizer(opt)
+# visualizer = Visualizer(opt)
 
-web_dir = os.path.join(opt.results_dir, opt.name,
-                       '%s_%s' % (opt.phase, opt.which_epoch))
-webpage = html.HTML(web_dir,
-                    'Experiment = %s, Phase = %s, Epoch = %s' %
-                    (opt.name, opt.phase, opt.which_epoch))
+# web_dir = os.path.join(opt.results_dir, opt.name,
+#                        '%s_%s' % (opt.phase, opt.which_epoch))
+# webpage = html.HTML(web_dir,
+#                     'Experiment = %s, Phase = %s, Epoch = %s' %
+#                     (opt.name, opt.phase, opt.which_epoch))
 
-# test
-print('Number of images: ', len(dataloader))
-for i, data_i in enumerate(tqdm(dataloader)):
-    if i * opt.batchSize >= opt.how_many:
-        break
-    if i>10:
-        break    
-    generated = model(data_i, mode='inference')
+# # test
+# print('Number of images: ', len(dataloader))
+# for i, data_i in enumerate(tqdm(dataloader)):
+#     if i * opt.batchSize >= opt.how_many:
+#         break
+#     if i>5:
+#         break    
+#     generated = model(data_i, mode='inference')
 
-    img_path = data_i['cpath']
-    for b in range(generated.shape[0]):
-        # print(i, 'process image... %s' % img_path[b])
-        if opt.show_input:
-            if opt.task == 'SIS':
-                visuals = OrderedDict([('input_label', data_i['label'][b]),
-                                       ('real_image', data_i['image'][b]),
-                                       ('synthesized_image', generated[b])])
-            else:
-                visuals = OrderedDict([('content', data_i['label'][b]),
-                                       ('style', data_i['image'][b]),
-                                       ('synthesized_image', generated[b])])
-        else:
-            visuals = OrderedDict([('synthesized_image', generated[b])])
-        visualizer.save_images(webpage, visuals, img_path[b:b + 1])
-        # generated[b].show()
-        break
+#     img_path = data_i['cpath']
+#     for b in range(generated.shape[0]):
+#         print(i, 'process image... %s' % img_path[b])
+#         if opt.show_input:
+#             if opt.task == 'SIS':
+#                 visuals = OrderedDict([('input_label', data_i['label'][b]),
+#                                        ('real_image', data_i['image'][b]),
+#                                        ('synthesized_image', generated[b])])
+#             else:
+#                 visuals = OrderedDict([('content', data_i['label'][b]),
+#                                        ('style', data_i['image'][b]),
+#                                        ('synthesized_image', generated[b])])
+#         else:
+#             visuals = OrderedDict([('synthesized_image', generated[b])])
+#         visualizer.save_images(webpage, visuals, img_path[b:b + 1])
 
-webpage.save()
+# webpage.save()
