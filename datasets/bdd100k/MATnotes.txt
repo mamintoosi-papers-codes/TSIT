@@ -1,0 +1,5 @@
+به دلیل عدم امکان اجرای فایل
+prepare_bdd100k.sh
+و 
+permission denied
+این پوشه رو درست کردم
