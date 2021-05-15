@@ -30,7 +30,8 @@ print('Number of images: ', len(dataloader))
 for i, data_i in enumerate(tqdm(dataloader)):
     if i * opt.batchSize >= opt.how_many:
         break
-
+    if i>10:
+        break    
     generated = model(data_i, mode='inference')
 
     img_path = data_i['cpath']
@@ -48,7 +49,7 @@ for i, data_i in enumerate(tqdm(dataloader)):
         else:
             visuals = OrderedDict([('synthesized_image', generated[b])])
         visualizer.save_images(webpage, visuals, img_path[b:b + 1])
-        generated[b].show()
+        # generated[b].show()
         break
 
 webpage.save()
