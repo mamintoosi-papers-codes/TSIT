@@ -48,5 +48,7 @@ for i, data_i in enumerate(tqdm(dataloader)):
         else:
             visuals = OrderedDict([('synthesized_image', generated[b])])
         visualizer.save_images(webpage, visuals, img_path[b:b + 1])
+        generated[b].show()
+        break
 
 webpage.save()
