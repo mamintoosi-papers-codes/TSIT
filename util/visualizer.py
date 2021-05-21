@@ -149,6 +149,7 @@ class Visualizer():
         
         # M.Amintoosi, Also save synthesized_image, separately
         # visuals_lst = []
+        print(visuals.keys())
         image_name = '%s_d2n.jpg' % name 
         save_path = os.path.join(image_dir, image_name)
         # for label, image_numpy in visuals.items():
