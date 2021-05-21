@@ -6,7 +6,8 @@ from options.test_options import TestOptions
 from models.pix2pix_model import Pix2PixModel
 from util.visualizer import Visualizer
 from util import html
-from tqdm import tqdm
+# from tqdm import tqdm
+from tqdm.notebook import tqdm
 
 
 opt = TestOptions().parse()
@@ -30,13 +31,13 @@ print('Number of images: ', len(dataloader))
 for i, data_i in enumerate(tqdm(dataloader)):
     if i * opt.batchSize >= opt.how_many:
         break
-    if i>5:
-        break    
+    # if i>5:
+    #     break    
     generated = model(data_i, mode='inference')
 
     img_path = data_i['cpath']
     for b in range(generated.shape[0]):
-        print(i, 'process image... %s' % img_path[b])
+        # print(i, 'process image... %s' % img_path[b])
         if opt.show_input:
             if opt.task == 'SIS':
                 visuals = OrderedDict([('input_label', data_i['label'][b]),
