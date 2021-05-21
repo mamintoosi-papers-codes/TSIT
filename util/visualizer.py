@@ -148,10 +148,11 @@ class Visualizer():
         util.save_image(image_cath, save_path, create_dir=True)
         
         # M.Amintoosi, Also save synthesized_image, separately
-        visuals_lst = []
+        # visuals_lst = []
         image_name = '%s_d2n.jpg' % name 
-        for label, image_numpy in visuals.items():
-            if 'synthesized_image' == label:
-                visuals_lst.append(image_numpy)
-        image_cath = np.concatenate(visuals_lst, axis=1)
-        util.save_image(image_cath, save_path, create_dir=True)
+        save_path = os.path.join(image_dir, image_name)
+        # for label, image_numpy in visuals.items():
+        #     if 'synthesized_image' == label:
+        #         visuals_lst.append(image_numpy)
+        # image_cath = np.concatenate(visuals_lst, axis=1)
+        util.save_image(visuals['synthesized_image'], save_path, create_dir=True)
