@@ -2,7 +2,10 @@
 
 ---
 I forked the original TSIT repository for day2night samples in fire detection.
-Use day2night_fire.ipynb
+Use day2night_fire.ipynb:
+
+https://colab.research.google.com/github/mamintoosi/ST-for-DA-in-FD/blob/master/train_fire_net_main.ipynb
+
 M. Amintoosi.
 ---
 
