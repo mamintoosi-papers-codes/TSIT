@@ -3,7 +3,6 @@
 *.swp
 *.pyc
 __pycache__
-*.ipynb*
 *.tar*
 *.zip
 *.pkl
