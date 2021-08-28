@@ -1,5 +1,11 @@
 # TSIT: A Simple and Versatile Framework for Image-to-Image Translation
 
+---
+I forked the original TSIT repository for day2night samples in fire detection.
+Use day2night_fire.ipynb
+M. Amintoosi.
+---
+
 ![teaser](resources/teaser.jpg)
 
 This repository provides the official PyTorch implementation for the following paper:
@@ -131,3 +137,4 @@ If you find this work useful for your research, please cite our paper:
 ## Acknowledgments
 
 The code is greatly inspired by [SPADE](https://github.com/NVlabs/SPADE), [pytorch-AdaIN](https://github.com/naoto0804/pytorch-AdaIN), and [Synchronized-BatchNorm-PyTorch](https://github.com/vacancy/Synchronized-BatchNorm-PyTorch).
+
